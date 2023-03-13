@@ -4,8 +4,8 @@ from saucedemo.src.pages.ProductListPage import ProductListPage
 class LoginPage:
     def __init__(self, page):
         self.page = page
-        self.page._username = page.get_by_placeholder("Username")
-        self.page._password = page.get_by_placeholder("Password")
+        self._username = page.get_by_placeholder("Username")
+        self._password = page.get_by_placeholder("Password")
         self._login_btn = page.get_by_text("Login")
 
     def enter_username(self, u_name):
