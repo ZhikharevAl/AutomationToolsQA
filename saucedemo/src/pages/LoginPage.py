@@ -7,6 +7,7 @@ class LoginPage:
         self._username = page.get_by_placeholder("Username")
         self._password = page.get_by_placeholder("Password")
         self._login_btn = page.get_by_text("Login")
+        self._error_message = page.locator("//h3")
 
     def enter_username(self, u_name):
         self._username.clear()
@@ -24,3 +25,7 @@ class LoginPage:
         self.enter_password(credentials["password"])
         self.click_login()
         return ProductListPage(self.page)
+
+    @property
+    def error_msg_locator(self):
+        return self._error_message
