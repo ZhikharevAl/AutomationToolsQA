@@ -30,12 +30,11 @@ def test_login_no_user_name(setup_teardown) -> None:
     expect(login_p.error_msg_locator).to_contain_text(expected_fail_massage)
 
 
-def xtest_login_no_password(page: Page) -> None:
-    page.goto("https://www.saucedemo.com/")
-    page.get_by_placeholder("Username").fill("standard_user")
-    page.get_by_placeholder("Password").fill("")
-    page.get_by_text("Login").click()
+def test_login_no_password(setup_teardown) -> None:
+    page = setup_teardown
+    credentials = {'username': 'standard_user', 'password': ''}
+    login_p = LoginPage(page)
+    login_p.do_login(credentials)
 
     expected_fail_massage = 'Password is required'
-    error_msg_locator = page.locator("//h3")
-    expect(error_msg_locator).to_contain_text(expected_fail_massage)
+    expect(login_p.error_message_password).to_contain_text(expected_fail_massage)
