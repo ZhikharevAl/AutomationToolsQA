@@ -34,3 +34,7 @@ class LoginPage:
     @property
     def error_message_password(self):
         return self._error_message
+
+    @property
+    def login_button(self):
+        return self._login_btn
