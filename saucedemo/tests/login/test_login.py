@@ -22,7 +22,6 @@ def test_login_with_invalid_user(setup_teardown) -> None:
 
 
 def test_login_no_user_name(setup_teardown) -> None:
-
     page = setup_teardown
     login_p = LoginPage(page)
     login_p.click_login()
@@ -38,3 +37,10 @@ def test_login_no_password(setup_teardown) -> None:
 
     expected_fail_massage = 'Password is required'
     expect(login_p.error_message_password).to_contain_text(expected_fail_massage)
+
+
+def test_access_inventory_without_login(setup_teardown) -> None:
+    page = setup_teardown
+    page.goto('https://www.saucedemo.com/inventory.html')
+    login_p = LoginPage(page)
+    expect(login_p.error_msg_locator).to_contain_text("You can only access '/inventory.html' when you are logged in.")
