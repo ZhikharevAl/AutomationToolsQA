@@ -6,6 +6,7 @@ class ProductListPage:
         self._burger_menu = page.locator("//*[@id='react-burger-menu-btn']")
         self._logout_btn = page.locator("//*[@id='logout_sidebar_link']")
         self._add_to_cart = page.locator("//*[@id='add-to-cart-sauce-labs-bolt-t-shirt']")
+        self._remove_from_cart = page.locator("//*[@id='remove-sauce-labs-bolt-t-shirt']")
         self._cart_badge = page.locator("//span[@class='shopping_cart_badge']")
 
     @property
@@ -26,13 +27,22 @@ class ProductListPage:
         self.click_burger_menu()
         self.click_logout()
 
-    def get_add_remove_cart_locator(self):
+    def get_add_cart_locator(self):
         """This will return locator of Add to cart button or Remove button"""
         return self._add_to_cart
 
-    def click_add_to_cart_or_remove(self):
-        self.get_add_remove_cart_locator().click()
+    def click_add_to_cart(self):
+        self.get_add_cart_locator().click()
         return self
+
+    def get_remove_from_cart_locator(self):
+        return self._remove_from_cart
+
+    def click_remove_from_cart(self):
+        self.get_remove_from_cart_locator().click()
+        return self
+
+
 
     @property
     def cart_badge(self):
