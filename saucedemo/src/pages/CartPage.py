@@ -4,6 +4,7 @@ class CartPage:
         self._cart_header = page.locator("span[class='title']")
         self._inventory_item_price = page.locator("div[class$='price']")
         self._remove_items = page.locator("button[id='remove-sauce-labs-bolt-t-shirt']")
+        self._continue_shopping = page.locator("button[id='continue-shopping']")
 
     def cart_header(self):
         return self._cart_header
@@ -18,3 +19,9 @@ class CartPage:
         self.get_remove_items_locator().click()
         return self
 
+    def get_continue_shopping_locator(self):
+        return self._continue_shopping
+
+    def click_continue_shopping(self):
+        self.get_continue_shopping_locator().click()
+        return self
