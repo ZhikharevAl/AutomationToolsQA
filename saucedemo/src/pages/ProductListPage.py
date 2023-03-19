@@ -8,6 +8,7 @@ class ProductListPage:
         self._add_to_cart = page.locator("//*[@id='add-to-cart-sauce-labs-bolt-t-shirt']")
         self._remove_from_cart = page.locator("//*[@id='remove-sauce-labs-bolt-t-shirt']")
         self._cart_badge = page.locator("//span[@class='shopping_cart_badge']")
+        self._cart = page.locator("//a[@class='shopping_cart_link']")
 
     @property
     def product_header(self):
@@ -42,10 +43,9 @@ class ProductListPage:
         self.get_remove_from_cart_locator().click()
         return self
 
-
-
     @property
     def cart_badge(self):
         return self._cart_badge
 
-
+    def click_cart(self):
+        self._cart.click()
