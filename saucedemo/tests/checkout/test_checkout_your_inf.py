@@ -1,7 +1,7 @@
 from playwright.sync_api import expect
 
 from saucedemo.src.pages.CartPage import CartPage
-from saucedemo.src.pages.CheckoutOverview.ChekoutOverviewPage import CheckoutOverviewPage
+from saucedemo.src.pages.CheckoutOverviewPage import CheckoutOverviewPage
 from saucedemo.src.pages.CheckoutYourInformationPage import CheckoutYourInformationPage
 from saucedemo.src.pages.LoginPage import LoginPage
 
