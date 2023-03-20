@@ -5,6 +5,7 @@ class CheckoutYourInformationPage:
         self._first_name = page.locator("input[id='first-name']")
         self._last_name = page.locator("input[id='last-name']")
         self._zipcode = page.locator("input[id='postal-code']")
+        self._continue = page.locator("input[id='continue']")
 
     def checkout_header(self):
         return self._checkout_header
@@ -28,5 +29,12 @@ class CheckoutYourInformationPage:
 
     def add_zipcode(self):
         self.zipcode_locator().fill("458769")
+        return self
+
+    def continue_locator(self):
+        return self._continue
+
+    def click_continue(self):
+        self.continue_locator().click()
         return self
 
