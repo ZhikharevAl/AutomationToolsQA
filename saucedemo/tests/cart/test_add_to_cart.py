@@ -1,6 +1,7 @@
 from playwright.sync_api import expect
 
 from saucedemo.src.pages.CartPage import CartPage
+from saucedemo.src.pages.CheckoutYourInformationPage import CheckoutYourInformationPage
 from saucedemo.src.pages.LoginPage import LoginPage
 
 
@@ -47,3 +48,19 @@ def test_continue_shopping(setup_teardown) -> None:
     cart_p.click_continue_shopping()
 
     expect(products_p.product_header).to_have_text('Products')
+
+
+def test_checkout(setup_teardown) -> None:
+    page = setup_teardown
+    credentials = {'username': 'standard_user', 'password': 'secret_sauce'}
+    login_p = LoginPage(page)
+    products_p = login_p.do_login(credentials)
+    products_p.click_add_to_cart()
+    products_p.click_cart()
+    cart_p = CartPage(page)
+    cart_p.click_checkout()
+    checkout_p = CheckoutYourInformationPage(page)
+
+    expect(checkout_p.checkout_header()).to_have_text('Checkout: Your Information')
+
+
