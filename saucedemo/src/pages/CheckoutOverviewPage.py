@@ -7,5 +7,3 @@ class CheckoutOverviewPage:
 
     def checkout_overview(self):
         return self._checkout_overview
-
-

@@ -1,3 +1,10 @@
+import random
+import string
+
+first_name = ''.join(random.choices(string.ascii_letters, k=6)).capitalize()
+last_name = ''.join(random.choices(string.ascii_letters, k=10)).capitalize()
+
+
 class CheckoutYourInformationPage:
     def __init__(self, page):
         self.page = page
@@ -14,21 +21,21 @@ class CheckoutYourInformationPage:
         return self._first_name
 
     def add_first_name(self):
-        self.first_name_locator().fill("John")
+        self.first_name_locator().fill(first_name)
         return self
 
     def last_name_locator(self):
         return self._last_name
 
     def add_last_name(self):
-        self.last_name_locator().fill("Snow")
+        self.last_name_locator().fill(last_name)
         return self
 
     def zipcode_locator(self):
         return self._zipcode
 
     def add_zipcode(self):
-        self.zipcode_locator().fill("458769")
+        self.zipcode_locator().fill(str(random.randint(100000, 999999)))
         return self
 
     def continue_locator(self):
@@ -37,4 +44,3 @@ class CheckoutYourInformationPage:
     def click_continue(self):
         self.continue_locator().click()
         return self
-
