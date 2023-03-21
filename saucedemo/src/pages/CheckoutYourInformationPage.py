@@ -1,3 +1,4 @@
+import os
 import random
 import string
 
@@ -44,3 +45,9 @@ class CheckoutYourInformationPage:
     def click_continue(self):
         self.continue_locator().click()
         return self
+
+    def take_screenshot(self, filename):
+        path = 'C:/Users/1/AquaProjects/AutomationToolsQA/saucedemo/screenshot/' + filename
+        if os.path.exists(path):
+            os.remove(path)
+        self.page.screenshot(path=path, full_page=True)

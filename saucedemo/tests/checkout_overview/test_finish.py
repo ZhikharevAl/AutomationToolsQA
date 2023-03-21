@@ -29,3 +29,5 @@ def test_finish(setup_teardown) -> None:
     checkout_o.click_finish()
 
     expect(checkout_c.checkout_complete_title()).to_have_text("Checkout: Complete!")
+
+    checkout_c.take_screenshot('test_finish.png')

@@ -20,6 +20,8 @@ def test_place_order(setup_teardown) -> None:
     expect(cart_p._cart_header).to_have_text("Your Cart")
     expect(cart_p._inventory_item_price).to_have_text("$15.99")
 
+    cart_p.take_screenshot('test_place_order.png')
+
 
 def test_remove_item_from_cart(setup_teardown) -> None:
     page = setup_teardown
@@ -35,6 +37,8 @@ def test_remove_item_from_cart(setup_teardown) -> None:
     expect(cart_p._cart_header).to_have_text("Your Cart")
     expect(products_p.cart_badge).not_to_be_visible()
 
+    cart_p.take_screenshot('test_remove_item_from_cart.png')
+
 
 def test_continue_shopping(setup_teardown) -> None:
     page = setup_teardown
@@ -49,6 +53,8 @@ def test_continue_shopping(setup_teardown) -> None:
 
     expect(products_p.product_header).to_have_text('Products')
 
+    products_p.take_screenshot('test_continue_shopping.png')
+
 
 def test_checkout(setup_teardown) -> None:
     page = setup_teardown
@@ -62,5 +68,7 @@ def test_checkout(setup_teardown) -> None:
     checkout_p = CheckoutYourInformationPage(page)
 
     expect(checkout_p.checkout_header()).to_have_text('Checkout: Your Information')
+
+    checkout_p.take_screenshot('test_checkout.png')
 
 

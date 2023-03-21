@@ -1,3 +1,6 @@
+import os
+
+
 class ProductListPage:
 
     def __init__(self, page):
@@ -49,3 +52,9 @@ class ProductListPage:
 
     def click_cart(self):
         self._cart.click()
+
+    def take_screenshot(self, filename):
+        path = 'C:/Users/1/AquaProjects/AutomationToolsQA/saucedemo/screenshot/' + filename
+        if os.path.exists(path):
+            os.remove(path)
+        self.page.screenshot(path=path, full_page=True)

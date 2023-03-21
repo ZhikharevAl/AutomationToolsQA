@@ -15,6 +15,8 @@ def test_add_to_cart(setup_teardown) -> None:
 
     expect(products_p.cart_badge).to_have_text("1")
 
+    products_p.take_screenshot('test_add_to_cart.png')
+
 
 def test_remove_product_cart(setup_teardown) -> None:
     """
@@ -28,6 +30,8 @@ def test_remove_product_cart(setup_teardown) -> None:
     products_p.click_remove_from_cart()
 
     expect(products_p.cart_badge).not_to_be_visible()
+
+    products_p.take_screenshot('test_remove_product_cart.png')
 
 
 

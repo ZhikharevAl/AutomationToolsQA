@@ -1,3 +1,5 @@
+import os
+
 from saucedemo.src.pages.ProductListPage import ProductListPage
 
 
@@ -38,3 +40,9 @@ class LoginPage:
     @property
     def login_button(self):
         return self._login_btn
+
+    def take_screenshot(self, filename):
+        path = 'C:/Users/1/AquaProjects/AutomationToolsQA/saucedemo/screenshot/' + filename
+        if os.path.exists(path):
+            os.remove(path)
+        self.page.screenshot(path=path, full_page=True)

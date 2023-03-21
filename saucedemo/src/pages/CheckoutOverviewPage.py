@@ -1,3 +1,6 @@
+import os
+
+
 class CheckoutOverviewPage:
 
     def __init__(self, page):
@@ -14,3 +17,9 @@ class CheckoutOverviewPage:
     def click_finish(self):
         self.finish_locator().click()
         return self
+
+    def take_screenshot(self, filename):
+        path = 'C:/Users/1/AquaProjects/AutomationToolsQA/saucedemo/screenshot/' + filename
+        if os.path.exists(path):
+            os.remove(path)
+        self.page.screenshot(path=path, full_page=True)

@@ -26,3 +26,5 @@ def test_checkout_your_inf(setup_teardown) -> None:
     checkout_o = CheckoutOverviewPage(page)
 
     expect(checkout_o.checkout_overview()).to_have_text("Checkout: Overview")
+
+    checkout_o.take_screenshot('test_checkout_your_inf.png')

@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import expect
 
 from saucedemo.src.pages.LoginPage import LoginPage
 
@@ -13,3 +13,7 @@ def test_unlogin(setup_teardown) -> None:
     products_p.do_logout()
 
     expect(login_p.login_button).to_be_visible()
+
+    products_p.take_screenshot('test_unlogin.png')
+
+
