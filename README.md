@@ -5,9 +5,13 @@
 | **WebKit**   | ✅     | ✅       | ✅     |
 | **Firefox**  | ✅     | ✅       | ✅     |
 
-What is Playwright?
+## What is Playwright?
 
-Playwright is a [Node.js](https://nodejs.org/en) library for automating web browsers. It supports Chromium, Firefox, and WebKit browsers, and offers a simple and powerful API for automating browser actions. Playwright also supports advanced features such as network interception and emulation, making it a powerful tool for web scraping, testing, and automation.
+###  _Playwright was created specifically to accommodate the needs of end-to-end testing. Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox. Test on Windows, Linux, and macOS, locally or on CI, headless or headed with native mobile emulation._
 
-## Documentation
+
+## Documentation:
 **https://playwright.dev/python/docs/intro**
+
+
+
