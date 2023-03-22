@@ -4,6 +4,9 @@ from saucedemo.src.pages.LoginPage import LoginPage
 
 
 def test_login_with_standard_user(setup_teardown) -> None:
+    """
+    Tests logging in with a valid username and password.
+    """
     page = setup_teardown
     credentials = {'username': 'standard_user', 'password': 'secret_sauce'}
     login_p = LoginPage(page)
@@ -15,6 +18,10 @@ def test_login_with_standard_user(setup_teardown) -> None:
 
 
 def test_login_with_invalid_user(setup_teardown) -> None:
+    """
+    Tests logging in with an invalid username and password.
+    """
+
     page = setup_teardown
     credentials = {'username': 'nonstandard_user', 'password': 'secret_sauce'}
     login_p = LoginPage(page)
@@ -26,6 +33,9 @@ def test_login_with_invalid_user(setup_teardown) -> None:
 
 
 def test_login_no_user_name(setup_teardown) -> None:
+    """
+    Tests logging in without a username.
+    """
     page = setup_teardown
     login_p = LoginPage(page)
     login_p.click_login()
@@ -36,6 +46,9 @@ def test_login_no_user_name(setup_teardown) -> None:
 
 
 def test_login_no_password(setup_teardown) -> None:
+    """
+    Tests logging in without a password.
+    """
     page = setup_teardown
     credentials = {'username': 'standard_user', 'password': ''}
     login_p = LoginPage(page)
@@ -48,9 +61,11 @@ def test_login_no_password(setup_teardown) -> None:
 
 
 def test_access_inventory_without_login(setup_teardown) -> None:
+    """
+    Tests accessing the inventory page without logging in.
+    """
     page = setup_teardown
     page.goto('https://www.saucedemo.com/inventory.html')
     login_p = LoginPage(page)
     expect(login_p.error_msg_locator).to_contain_text("You can only access '/inventory.html' when you are logged in.")
     login_p.take_screenshot('test_access_inventory_without_login.png')
-

@@ -7,8 +7,8 @@ from saucedemo.src.pages.LoginPage import LoginPage
 
 def test_place_order(setup_teardown) -> None:
     """
-    
-    """
+   Test for adding a product to the shopping cart
+   """
     page = setup_teardown
     credentials = {'username': 'standard_user', 'password': 'secret_sauce'}
     login_p = LoginPage(page)
@@ -24,6 +24,9 @@ def test_place_order(setup_teardown) -> None:
 
 
 def test_remove_item_from_cart(setup_teardown) -> None:
+    """
+   Test for removing a product from the shopping cart
+   """
     page = setup_teardown
     credentials = {'username': 'standard_user', 'password': 'secret_sauce'}
     login_p = LoginPage(page)
@@ -41,6 +44,9 @@ def test_remove_item_from_cart(setup_teardown) -> None:
 
 
 def test_continue_shopping(setup_teardown) -> None:
+    """
+   Test for finishing the checkout process
+   """
     page = setup_teardown
     credentials = {'username': 'standard_user', 'password': 'secret_sauce'}
     login_p = LoginPage(page)
@@ -57,6 +63,9 @@ def test_continue_shopping(setup_teardown) -> None:
 
 
 def test_checkout(setup_teardown) -> None:
+    """
+    Test for checking out your information
+    """
     page = setup_teardown
     credentials = {'username': 'standard_user', 'password': 'secret_sauce'}
     login_p = LoginPage(page)

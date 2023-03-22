@@ -32,7 +32,3 @@ def test_remove_product_cart(setup_teardown) -> None:
     expect(products_p.cart_badge).not_to_be_visible()
 
     products_p.take_screenshot('test_remove_product_cart.png')
-
-
-
-

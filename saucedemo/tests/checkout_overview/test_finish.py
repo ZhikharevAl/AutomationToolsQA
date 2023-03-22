@@ -8,6 +8,9 @@ from saucedemo.src.pages.LoginPage import LoginPage
 
 
 def test_finish(setup_teardown) -> None:
+    """
+    Tests the checkout process from the checkout information page to the checkout complete page.
+    """
     page = setup_teardown
     credentials = {'username': 'standard_user', 'password': 'secret_sauce'}
     login_p = LoginPage(page)
