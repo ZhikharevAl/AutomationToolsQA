@@ -1,5 +1,8 @@
 import os
 
+"""Class provides a representation of the product list page of the Sauce Demo application, 
+    which is used to interact with the various elements on the page."""
+
 
 class ProductListPage:
 
@@ -15,26 +18,23 @@ class ProductListPage:
 
     @property
     def product_header(self):
-        """ It returns locator or selector for product header text """
         return self._products_header
 
+    """Method is used to click the burger menu icon"""
     def click_burger_menu(self):
-        """ Click on the Burger menu icon in the header """
         return self._burger_menu.click()
-
+    """Method is used to click the logout button"""
     def click_logout(self):
-        """ This will click on logout """
         return self._logout_btn.click()
 
     def do_logout(self):
-        """ Logout from the sauce demo"""
         self.click_burger_menu()
         self.click_logout()
 
     def get_add_cart_locator(self):
-        """This will return locator of Add to cart button or Remove button"""
         return self._add_to_cart
 
+    """Method is used to click the add to cart button"""
     def click_add_to_cart(self):
         self.get_add_cart_locator().click()
         return self
@@ -42,6 +42,7 @@ class ProductListPage:
     def get_remove_from_cart_locator(self):
         return self._remove_from_cart
 
+    """Method is used to click the remove from cart button"""
     def click_remove_from_cart(self):
         self.get_remove_from_cart_locator().click()
         return self
@@ -50,9 +51,12 @@ class ProductListPage:
     def cart_badge(self):
         return self._cart_badge
 
+    """method is used to click the cart link."""
     def click_cart(self):
         self._cart.click()
 
+    """Takes a full-page screenshot of the cart page and saves it to the specified file path, overwriting it if it 
+        already exists."""
     def take_screenshot(self, filename):
         path = 'C:/Users/1/AquaProjects/AutomationToolsQA/saucedemo/screenshot/' + filename
         if os.path.exists(path):
