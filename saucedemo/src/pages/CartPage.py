@@ -44,7 +44,7 @@ class CartPage:
         self.get_continue_shopping_locator().click()
         return self
 
-    """Returns the element locator for the "checkout" button on the cart page."""
+    """Returns the element locator for the "checkout" button on the cart_page."""
 
     def get_checkout_locator(self):
         return self._checkout
