@@ -64,13 +64,52 @@ docker-compose up
 ## 📈 [Allure Framework](https://github.com/allure-framework):
 >Allure is a framework and report generator that can be used to create beautiful and informative reports on test results. In this example, Allure is used to generate reports on test execution results. If you want to generate reports, you need to install Allure and run tests with the --alluredir parameter, as shown below:
 ```sh
-pytest --alluredir=allure-results
+pytest --clean-alluredir
 ```
 >After running tests, you can generate Allure reports using the command:
 
 ```sh
 allure serve allure-results
 ```
+## Testing report using the [Pandas library](https://github.com/pandas-dev/pandas):
+```sh
+pip install pandas
+```
+1. Load the test data into a Pandas DataFrame.
+2. Write test functions that validate the expected behavior of the code being tested.
+3. Run the test functions on the test data, and store the results in a new DataFrame.
+4. Generate a summary of the test results using the Pandas library.
+### Here's some example code that demonstrates how to do this:
+```sh
+import pandas as pd
+
+# Load the test data into a DataFrame
+test_data = pd.read_csv('test_data.csv')
+
+# Define a test function
+def test_function(input_data, expected_output):
+    output = my_function(input_data)
+    assert output == expected_output, f"Expected {expected_output}, but got {output}."
+
+# Run the test function on the test data
+test_results = []
+for i, row in test_data.iterrows():
+    input_data = row['input_data']
+    expected_output = row['expected_output']
+    try:
+        test_function(input_data, expected_output)
+        test_results.append('Pass')
+    except AssertionError as e:
+        test_results.append('Fail')
+
+# Store the test results in a new DataFrame
+test_data['test_result'] = test_results
+
+# Generate a summary of the test results
+summary = test_data.groupby('test_result').size()
+print(summary)
+```
+>In this example, we load the test data into a Pandas DataFrame, define a test function, run the test function on the test data, store the test results in a new DataFrame, and generate a summary of the test results using the groupby() method. The resulting summary shows the number of tests that passed and the number of tests that failed.
 ## 📝 License:
 This project is licensed under the MIT License - see the [LICENSE](https://ru.wikipedia.org/wiki/Лицензия_MIT) file for details.
 ## ![Jokes Card](https://readme-jokes.vercel.app/api)
