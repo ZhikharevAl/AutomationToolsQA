@@ -110,7 +110,7 @@ summary = test_data.groupby('test_result').size()
 print(summary)
 ```
 >In this example, we load the test data into a Pandas DataFrame, define a test function, run the test function on the test data, store the test results in a new DataFrame, and generate a summary of the test results using the groupby() method. The resulting summary shows the number of tests that passed and the number of tests that failed.
-# ![test report as an .xml](C://Users/1/AquaProjects/AutomationToolsQA/test_report/2023-03-23_22-24-10.png)
+# ![Test report as an .xml](https://github.com/[ZhikharevAl]/[python-playwright-demo-project]/blob/[branch]/2023-03-23_22-24-10.jpg?raw=true)
 ## 📝 License:
 This project is licensed under the MIT License - see the [LICENSE](https://ru.wikipedia.org/wiki/Лицензия_MIT) file for details.
 ## ![Jokes Card](https://readme-jokes.vercel.app/api)
