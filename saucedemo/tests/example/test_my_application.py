@@ -1,4 +1,6 @@
 import re
+
+import requests
 from playwright.sync_api import Page, expect
 
 
@@ -19,3 +21,11 @@ def test_homepage_has_Playwright_in_title_and_get_started_link_linking_to_the_in
 
     # Expects the URL to contain intro.
     expect(page).to_have_url(re.compile(".*intro"))
+
+
+def test_invalid_endpoint():
+    # Send a GET request to an invalid endpoint
+    response = requests.get("https://playwright.dev/invalid_endpoint/")
+
+    # Expect a 404 status code
+    assert response.status_code == 404
