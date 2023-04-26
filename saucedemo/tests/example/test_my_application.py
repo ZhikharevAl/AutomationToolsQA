@@ -28,4 +28,4 @@ def test_invalid_endpoint():
     response = requests.get("https://playwright.dev/invalid_endpoint/")
 
     # Expect a 404 status code
-    assert response.status_code == 404
+    assert response.status_code == 404, f"Ошибка: статус-код {response.status_code}, ожидался код 404"
